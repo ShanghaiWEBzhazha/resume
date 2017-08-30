@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PC端网页简历</title>
+    <script>
+        //获取像素比
+        var pixelRatio=1/window.devicePixelRatio;
+        document.write("<meta name='viewport' content='width=device-width,initial-scale="+pixelRatio+",minimum-scale="+pixelRatio+",maximum-scale="+pixelRatio+"'/>")
+    </script>
+    <style>
+        *{margin:0;padding:0;}
+        body{overflow:hidden;  font-family:微软雅黑}
+        .full{height:100vh;}
+        .section1{background:url(bg.png) #87b0a5;}
+        .contain{position: relative;heigth:370px;margin-bottom: 70px}
+        .photo{height:160px;width:160px;overflow: hidden;margin:0 auto;border-radius: 50%;position: relative;top:100px;transition: box-shadow .5s linear;-webkit-transition: box-shadow .5s linear;}
+        .photo img{width: 100%; }
+        #content{color:white;font-size: 22px;width:640px;margin: 150px auto 0px auto;padding-bottom:20px}
+        #content:after{content: "";position: absolute;left:10%;right:10%;bottom: 0;height: 1px;background-color: rgba(255,255,255,.6)}
+        .detail{text-align: center;width: 210px;margin:0 auto}
+        p{color:white;margin-bottom: 15px;}
+        .email{font-weight: bold}
+        .section2{background:url(bg.png)#109085}
+        h1{color:white}
+        .top-title{padding-top:100px;width:100px;text-align: center;margin: 0 auto}
+        .icon_div{width:720px;height:150px;margin:100px auto 0 auto;text-align: center}
+        .icon_li{float:left;width: 100px;margin: 0 40px}
+        .aboutme{width: 90px;  height: 90px;  cursor: pointer;  -webkit-transition: background .2s,-webkit-transform ease-out .5s;  transition: background .5s,-webkit-transform ease-out .5s;  transition: transform ease-out .5s,background .5s;  transition: transform ease-out .5s,background .5s,-webkit-transform ease-out .5s;  background: rgba(255,255,255,.1);  border-radius: 50%;  position: relative;  margin: 0 auto; display: block  }
+        .aboutme img{width: 50%;  position: absolute;  top: 50%;  right: 50%;  -webkit-transform: translateY(-50%) translateX(50%);  transform: translateY(-50%) translateX(50%);}
+        .icon_li span{color:white;-webkit-transform: translateY(-20%);transform: translateY(-20%);}
+        .aboutme:hover{background-color: #569088}
+        .description{width:400px;margin:0 auto;padding-top:50px;color:white;text-align: center;font-size:18px }
+        li{list-style: none;margin: 0;padding: 0;}
+        .section3{background: url(bg.png) #4d5e8f}
+        .skill{width:960px;margin:100px auto 0 auto;}
+        .skill_icon{width: 60px;height: 60px;float: left;text-align: center;line-height: 60px;color: rgb(255,255,255);display: inline-block;border-radius: 50%;background-color: rgb(0,167,142);}
+        .skill_icon:hover{background-color:#4d5e8f;border: 1px solid rgb(0,167,142);color:rgb(0,167,142);-webkit-transition: background .5s,-webkit-transform ease-out .5s;  transition: background .5s,-webkit-transform ease-out .5s;  transition: transform ease-out .5s,background .5s;  transition: transform ease-out .5s,background .5s,-webkit-transform ease-out .5s;}
+        .skill_p{font-size: 20px;color:white;margin-left: 145px;text-align: left;line-height:60px}
+        .section4{background:url(bg.png) #a29971}
+        .hobby{width:400px;margin:0 auto;padding-top:50px;color:white;text-align: center;font-size:18px;line-height: 40px }
+        .communicate{width:400px;margin:50px auto 0 auto;text-align: center}
+        .phone{color:deepskyblue;float:left;margin-right:50px}
+        .qq{color:yellow}
+        #buttons{position:fixed; right: 40px; top: 50%;-webkit-transform: translateY(-50%);transform: translateY(-50%);font-size: 14px;text-align: center}
+        #ul1{list-style: none;  margin: 0;  padding: 0;}
+        .dot{line-height: 24px;  position: relative;  width: 24px;  height: 24px;  margin: 12px auto;text-align: center}
+        em{position: absolute;width: 12px;  height: 12px;background: rgba(0,0,0,.7);-webkit-transition: all .3s ease;  transition: all .3s ease;  border-radius: 50%;  opacity: .1;  cursor: pointer;}
+        .icon{width: 60%;  opacity: 0;  position: absolute;  top:22%;right:20%}
+        li:hover em{transform:  scale(3);opacity: 1;}
+        li:hover .icon{opacity: 1}
+        li:hover span{opacity: 1}
+        .dot .on{transform:  scale(3);opacity: 1;}
+        .dot .on .icon{opacity: 1;}
+        .dot span{position: absolute;display:inline-block;opacity:0;z-index: 1;-webkit-transition: all .3s ease;transition: all .3s ease;width: 60px;top:-5px;left: -79px;text-align: center;background: rgba(0,0,0,.7);color: #FFF;border-radius: 3px 0 0 3px;font-weight: 700;}
+        .dot span:after{content: "";position: absolute;right: -12px;width:0;height:0;border-top:12px solid transparent;border-left:12px solid rgba(0,0,0,.7);border-bottom: 12px solid transparent;}
+        .-arrow {position: fixed;bottom: 20px;  width: 20px;  height: 35px;  left: 50%;background: url(arrow.svg) bottom center no-repeat;  background-size: contain;  pointer-events: none;  transform: translateX(-50%);  animation: arrowAnimate 1.5s ease-in-out infinite;  }
+        @keyframes arrowAnimate {
+            0% {
+                bottom: 10px;
+                opacity: .8;
+            }
+
+            50% {
+                bottom: 20px;
+                opacity: 1;
+            }
+
+            80% {
+                bottom: 22px;
+                opacity: .4;
+            }
+
+            100% {
+                bottom: 22px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="section1 full">
+    <div class="contain">
+        <div class="photo">
+            <img src="IMG_0211(20170506-152239).jpg" alt="">
+        </div>
+        <p id="content">生活是一种绵延不绝的渴望，渴望不断上升，变得更伟大而高贵。</p>
+
+    </div>
+    <div class="detail">
+        <p>我叫施杰</p>
+        <p>是一位前端小白</p>
+        <p class="email">a66377172@qq.com</p>
+    </div>
+</div>
+<div class="section2 full">
+    <div class="top-title">
+        <h1>关于我</h1>
+    </div>
+    <div class="icon_div">
+        <ul class="icon_ul">
+            <li class="icon_li">
+                <span class="aboutme">
+                    <img src="i_age.svg" alt="">
+                </span>
+                <span>年龄/21岁</span>
+            </li>
+            <li class="icon_li">
+                <span class="aboutme"><img src="i_edu.svg" alt=""></span>
+                <span>学历/专科</span>
+            </li>
+            <li class="icon_li">
+                <span class="aboutme"><img src="i_site.svg" alt=""></span>
+                <span>坐标/上海</span>
+            </li>
+            <li class="icon_li">
+                <span class="aboutme"><img src="i_status.svg" alt=""></span>
+                <span>状态/在读</span>
+            </li>
+        </ul>
+    </div>
+    <div class="description">从事前端开发将近一年，虽然时间不长但一刻没有停歇，遇到问题有较强的自我解决能力，对前端工程化、模块化具有极大兴趣。不会在困难前叹息，享受解决困难后的喜悦。</div>
+</div>
+<div class="section3 full">
+    <div class="top-title">
+        <h1>技能栈</h1>
+    </div>
+    <div class="skill">
+        <ul class="skill_ul">
+            <li><span class="skill_icon">H</span><p class="skill_p">熟悉html5/css3语义化编写代码结构整洁，可写部分动画特效</p></li>
+            <li><span class="skill_icon">B</span><p class="skill_p">熟悉Bootshrp框架，能用Bootsharp编写简单网页</p></li>
+            <li><span class="skill_icon">J</span><p class="skill_p">熟悉JavaScript语法可编写原生js，熟练使用jquery等前端js库,目前正在接触OOP面向对象。</p></li>
+            <li><span class="skill_icon">将</span><p class="skill_p">希望将来能学到更多关于前端方面的知识，掌握更高深的技术</p></li>
+        </ul>
+    </div>
+</div>
+<div class="section4 full">
+    <div class="top-title">
+        <h1>联系我</h1>
+    </div>
+    <div class="hobby">
+        注重效率，偏爱敏捷开发<br>
+
+        喜欢尝试，期待新鲜事物<br>
+
+        前端即兴趣，兴趣即未来<br>
+
+        行路有良友，便是捷径<br>
+
+        带上我吧，一起看到更大的世界<br>
+    </div>
+    <div class="communicate">
+        <p class="phone">手机：1312076031</p>
+        <p class="qq">QQ:1014295742</p>
+    </div>
+</div>
+<div id="buttons">
+    <ul id="ul1">
+        <li class="dot" >
+            <em class="on">
+                <img class="icon"src="d_home.svg" alt="">
+            </em>
+            <span>首页</span>
+        </li>
+        <li class="dot">
+            <em>
+                <img class="icon" src="d_info.svg" alt="">
+            </em>
+            <span>关于我</span>
+        </li>
+        <li class="dot">
+            <em>
+                <img class="icon" src="d_skills.svg" alt="">
+            </em>
+            <span>技能栈</span>
+        </li>
+        <li class="dot">
+            <em>
+                <img class="icon" src="d_contact.svg" alt="">
+            </em>
+            <span>联系我</span>
+        </li>
+    </ul>
+</div>
+<div class="-arrow" style="display:block"></div>
+
+</body>
+<script type="text/javascript">
+    var ems=document.getElementsByTagName("em");
+    var index=0;
+    function show(){
+        for(var i=0;i<ems.length;i++){
+            if(ems[i].className=="on"){
+                ems[i].className="";
+                break;
+            }
+        }
+        ems[index].className="on";
+    }
+    var ismoving=false;
+    var pageH=document.documentElement.clientHeight;
+    var allheight=document.documentElement.scrollHeight;
+    var scrollFunc=function(e){
+        e=e||window.event;
+        if(ismoving){
+            return;
+        }else{
+            if(e.wheelDelta>0||e.detail<0){
+                // alert("向上滑");
+                var current=window.pageYOffset;
+                if(current==0){
+                    return;
+                }
+                pageScroll(-1,current);
+                index--;
+                show();
+            }
+            if(e.wheelDelta<0||e.detail>0){
+                // alert("向下滑");
+                var current=window.pageYOffset;
+                if(current==allheight-pageH){
+                    return;
+                }
+                pageScroll(1,current);
+               index++;
+                show();
+            }
+        }
+    }
+    window.resize=function(){
+        pageH=document.documentElement.clientHeight;
+    }
+    if(document.addEventListener){
+        document.addEventListener('DOMMouseScroll',scrollFunc,false);
+    }
+    window.onmousewheel=scrollFunc;
+
+    var timer=null;
+    function pageScroll(speed,current){
+        ismoving=true;
+        if(speed>0){
+            var allH=current+pageH;
+            timer=setInterval(function(){
+                var cur=window.pageYOffset;
+                window.scrollTo(0,cur+speed);
+                if(cur > (allH-(pageH/2))){
+                    speed--
+                }else{
+                    speed++;
+                }
+                if(cur >= allH){
+                    clearInterval(timer);
+                    window.scrollTo(0,allH);
+                    ismoving=false;
+                }
+            },10)
+        }else{
+            var allH=current-pageH;
+            timer=setInterval(function(){
+                var cur=window.pageYOffset;
+                window.scrollTo(0,cur+speed);
+                if(cur < (allH+(pageH/2))){
+                    speed++;
+                }else{
+                    speed--;
+                }
+                if(cur <= allH){
+                    clearInterval(timer);
+                    window.scrollTo(0,allH);
+                    ismoving=false;
+                }
+            },10)
+        }
+    }
+
+
+
+</script>
+<script src="public/js/jquery-3.0.0.js"></script>
+<script>
+    $(function(){
+        $(window).scrollTop(0);
+    });
+</script>
+</html>
